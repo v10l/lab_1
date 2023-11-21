@@ -27,7 +27,11 @@ public class Product {
                         Constructor<?> constructor = productClass.getConstructor(String.class);
                         Object product = constructor.newInstance(parts[1]);
                         breakfast[itemsSoFar] = (Food)product;
-                    } else {
+                     } else if (parts.length == 3) {
+                         Constructor<?> constructor = productClass.getConstructor(String.class, String.class);
+                         Object product = constructor.newInstance(parts[1], parts[2]);
+                         breakfast[itemsSoFar] = (Food) product;
+                     } else {
                          Constructor<?> constructor = productClass.getConstructor();
                          Object product = constructor.newInstance();
                          breakfast[itemsSoFar] = (Food)product;
